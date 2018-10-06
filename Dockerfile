@@ -1,7 +1,7 @@
 FROM alpine:3.8
 
 # version label
-ARG OVERLAY_VERSION='v1.21.4.0'
+ARG OVERLAY_VERSION='v1.21.7.0'
 LABEL overlay_version="$OVERLAY_VERSION"
 
 # sensible environment
