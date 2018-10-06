@@ -1,0 +1,21 @@
+version: 2
+jobs:
+  release:
+    docker:
+      - image: docker:stable
+    steps:
+      - checkout
+      - run: docker login -u $DOCKER_USER -p $DOCKER_PASS
+      - run: docker build -t p3lim/alpine:latest -t p3lim/alpine:$CIRCLE_TAG .
+      - run: docker push p3lim/alpine:$CIRCLE_TAG
+      - run: docker push p3lim/alpine:latest
+workflows:
+  version: 2
+  release:
+    jobs:
+      - release:
+          filters:
+            tags:
+              only: /.*/
+            branches:
+              ignore: /.*/
