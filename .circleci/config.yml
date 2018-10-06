@@ -7,15 +7,15 @@ jobs:
       - checkout
       - setup_remote_docker
       - run:
-        name: Build image
-        command: |
-          docker build -t p3lim/alpine:latest -t p3lim/alpine:$CIRCLE_TAG .
+          name: Build image
+          command: |
+            docker build -t p3lim/alpine:latest -t p3lim/alpine:$CIRCLE_TAG .
       - run:
-        name: Push image to Docker Hub
-        command: |
-          docker login -u $DOCKER_USER -p $DOCKER_PASS
-          docker push p3lim/alpine:$CIRCLE_TAG
-          docker push p3lim/alpine:latest
+          name: Push image to Docker Hub
+          command: |
+            docker login -u $DOCKER_USER -p $DOCKER_PASS
+            docker push p3lim/alpine:$CIRCLE_TAG
+            docker push p3lim/alpine:latest
 workflows:
   version: 2
   release:
