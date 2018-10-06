@@ -1,11 +1,5 @@
 #!/usr/bin/with-contenv bash
 
-PUID=${PUID:-911}
-PGID=${PGID:-911}
-
-usermod -o -u "$PUID" abc
-groupmod -o -g "$PGID" abc
-
 echo '--------------------------------------'
 echo
 echo -e '              \033[0m\033[36m   /\\ /\\' ""
@@ -19,7 +13,3 @@ echo "Alpine Linux $(cat /etc/alpine-release) w/ s6-overlay"
 echo 'https://github.com/p3lim/docker-alpine'
 echo '--------------------------------------'
 echo
-
-chown abc:abc /config
-chown abc:abc /defaults
-chown abc:abc /app

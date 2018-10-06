@@ -1,0 +1,14 @@
+#!/usr/bin/with-contenv bash
+
+# set fallback environment values
+PUID=${PUID:-911}
+PGID=${PGID:-911}
+
+# update supervisor user
+usermod -o -u "$PUID" abc
+groupmod -o -g "$PGID" abc
+
+# update permissions
+chown abc:abc /config
+chown abc:abc /logs
+chown abc:abc /data
